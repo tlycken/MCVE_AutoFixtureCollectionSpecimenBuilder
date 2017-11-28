@@ -25,7 +25,7 @@ namespace AutoFixtureCollectionSpecimenBuilder
             items.Add(CreateItem(context, week2));
 
             items.GroupBy(t => t.Week).ToList().ForEach(ConfigureNames);
-            ConfigureSubTasks(context, items);
+            ConfigureSubItems(context, items);
 
             return items;
         }
@@ -75,7 +75,7 @@ namespace AutoFixtureCollectionSpecimenBuilder
             }
         }
 
-        private static void ConfigureSubTasks(ISpecimenContext context, IEnumerable<Item> items)
+        private static void ConfigureSubItems(ISpecimenContext context, IEnumerable<Item> items)
         {
             foreach (var group in items.GroupBy(item => item.Week.WeekId))
             {
